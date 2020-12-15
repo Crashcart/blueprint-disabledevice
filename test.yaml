@@ -1,17 +1,8 @@
 blueprint:
-  name: Mute mediaplayer when calling.
+  name: Disable automation
   description: >
-    Mute a mediaplayer when phone rings or is calling.
-    Only when person is home and the mediaplayer is playing.
+     Disable automation when someone leaves
   domain: automation
-  input:
-    phone_state:
-      name: Phone State sensor
-      description: All sensors form the mobile app. Select the phone state sensor here.
-      selector:
-        entity:
-          integration: mobile_app
-          domain: sensor
     person:
       name: Person
       description: Select the person that needs to be home.
@@ -25,43 +16,22 @@ blueprint:
       selector:
           entity:
             domain: zone
-    media_player: 
-      name: Media Player
-      description: Select the media player that needs to be muted.
+    automation: 
+      name: Automation
+      description: Select theautomation that needs to be muted.
       selector:
         entity:
-          domain: media_player
+          domain: automation
 
 trigger:
   - platform: state
-    entity_id: !input phone_state
-    to: "ringing"
-  - platform: state
-    entity_id: !input phone_state
-    to: "offhook"
+    entity_id: !input person
+    to: "away"
 variables: 
   zone: !input zone
   zone_name: "{{ zone[5:40] }}"
-condition:
-  - condition: state
-    entity_id: !input person
-    state: >-
-      {{ zone_name }}
-  - condition: state
-    entity_id: !input media_player
-    state: playing
 action:
-  - service: media_player.volume_mute
-    entity_id: !input media_player
-    data:
-      is_volume_muted: true
-  - wait_for_trigger:
-    - platform: state 
-      entity_id: !input phone_state
-      to: "idle" 
-    timeout:
-      seconds: 300
-  - service: media_player.volume_mute
-    entity_id: !input media_player
-    data:
-      is_volume_muted: false
+  action:
+  - service: automation.turn_off
+    data: {}
+    entity_id: !input automation

@@ -16,11 +16,12 @@ blueprint:
         entity:
           domain: zone
     device:
-      name: motion
-      discription: device to input
+      name: sensor
+      discription: Sensor to turn off
       selector:
-        entiy:
+        entity:
           domain: sensor
+      
           
 trigger:
   trigger:

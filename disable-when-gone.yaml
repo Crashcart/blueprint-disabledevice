@@ -17,10 +17,11 @@ blueprint:
           domain: zone
     sensor:
       name: Sensor
-      discription: Sensor
+      discription: device to input
       selector:
         entiy:
           domain: sensor
+          
 trigger:
   trigger:
     platform: zone

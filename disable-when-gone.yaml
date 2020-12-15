@@ -15,6 +15,11 @@ blueprint:
       selector:
         entity:
           domain: zone
+    device:
+      name: Device
+      selector:
+        entiy:
+          domain: sensor
 trigger:
   trigger:
     platform: zone

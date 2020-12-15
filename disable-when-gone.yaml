@@ -16,7 +16,7 @@ blueprint:
         entity:
           domain: zone
     sensor:
-      name: Sensor
+      name: motion
       discription: device to input
       selector:
         entiy:

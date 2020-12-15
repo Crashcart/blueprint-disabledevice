@@ -8,7 +8,7 @@ blueprint:
       description: Select the person that needs to be home.
       selector:
         entity:
-          domain: person
+          domain: group
     zone:
       name: Zone
       description: Select the Zone the person needs to be in.
@@ -21,7 +21,6 @@ blueprint:
       selector:
         entiy:
           domain: sensor
-          device_class: illuminance
 trigger:
   trigger:
     platform: zone
@@ -29,6 +28,7 @@ trigger:
     zone: !input zone
     # Event is either enter or leave
     event: leave
+mode: single
 #trigger: 
 #    platform: state
 #    entity_id: !input sensor

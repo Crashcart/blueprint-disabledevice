@@ -12,9 +12,10 @@ blueprint:
     zone:
       name: Zone
       description: Select the Zone the person needs to be in.
+      default: zone.home
       selector:
-        entity:
-          domain: zone
+          entity:
+            domain: zone
     device:
       name: sensor
       discription: Sensor to turn off

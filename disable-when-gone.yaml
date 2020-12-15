@@ -23,11 +23,10 @@ blueprint:
         entity:
           domain: sensor
 trigger:
-   platform: zone
-   entity_id: !input person
-   zone: !input zone
-    # Event is either enter or leave
-    event: leave
+  - platform: state
+    entity_id: !input zone
+    from: "home"
+    to: "away"
 mode: single
 action: 
   - service: homeassistant.turn_off

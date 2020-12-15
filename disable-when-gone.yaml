@@ -2,3 +2,36 @@ blueprint:
   name: Disable device
   description:  Disable devices when everyone is gone
   domain: automation
+    input:
+    phone_state:
+      name: Phone State sensor
+      description: All sensors form the mobile app. Select the phone state sensor here.
+      selector:
+        entity:
+    person:
+      name: Person
+      description: Select the person that needs to be home.
+      selector:
+        entity:
+          domain: person
+    zone:
+      name: Zone
+      description: Select the Zone the person needs to be in.
+      default: zone.home
+      selector:
+          entity:
+            domain: zone
+     device:
+       name: device
+       discription: What device or group to disable
+       selector:
+         entity:
+trigger:
+  - condition: state
+    entity_id: !input person
+    state: !input zone
+action:
+  - service: media_player.volume_mute
+    entity_id: !input media_player
+    data:
+      is_volume_muted: false

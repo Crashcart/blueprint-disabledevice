@@ -3,6 +3,7 @@ blueprint:
   description: >
      Disable automation when someone leaves
   domain: automation
+  input:
     person:
       name: Person
       description: Select the person that needs to be home.

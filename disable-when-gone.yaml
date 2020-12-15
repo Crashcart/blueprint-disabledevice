@@ -21,8 +21,6 @@ blueprint:
       selector:
         entity:
           domain: sensor
-      
-          
 trigger:
    platform: zone
    entity_id: !input person

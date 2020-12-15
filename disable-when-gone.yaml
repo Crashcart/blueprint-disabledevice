@@ -20,6 +20,7 @@ blueprint:
       selector:
         entiy:
           domain: sensor
+          device_class: illuminance
 trigger:
   trigger:
     platform: zone

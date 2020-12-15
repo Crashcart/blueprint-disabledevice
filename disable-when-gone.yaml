@@ -3,8 +3,8 @@ blueprint:
   description: disable motion
   domain: automation
   input:
-    group:
-      name: Person
+    groupname:
+      name: groupname
       description: Select the person group that needs to be home.
       selector:
         entity:
@@ -24,7 +24,7 @@ blueprint:
           domain: automation
   trigger:
   - platform: zone
-    entity_id: !input group
+    entity_id: !input groupname
     zone: !input zone
     event: enter
   condition: []

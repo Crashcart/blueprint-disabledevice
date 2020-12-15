@@ -15,7 +15,7 @@ blueprint:
       selector:
         entity:
           domain: zone
-    sensor:
+    device:
       name: motion
       discription: device to input
       selector:
@@ -30,11 +30,6 @@ trigger:
     # Event is either enter or leave
     event: leave
 mode: single
-#trigger: 
-#    platform: state
-#    entity_id: !input sensor
-#    to: 'off'
-
 action: 
-    - entity_id: !input sensor
+    - entity_id: !input device
       service: homeassistant.turn_off

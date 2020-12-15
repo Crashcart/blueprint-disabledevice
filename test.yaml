@@ -28,9 +28,6 @@ trigger:
   - platform: state
     entity_id: !input person
     to: "away"
-variables: 
-  zone: !input zone
-  zone_name: "{{ zone[5:40] }}"
 action:
   action:
   - service: automation.turn_off

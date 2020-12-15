@@ -1,0 +1,4 @@
+blueprint:
+  name: Motion Light Tutorial
+  description: Disable devices when gone
+  domain: automation

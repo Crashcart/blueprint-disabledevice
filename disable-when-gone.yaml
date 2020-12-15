@@ -24,13 +24,12 @@ blueprint:
       
           
 trigger:
-  trigger:
-    platform: zone
-    entity_id: !input person
-    zone: !input zone
+   platform: zone
+   entity_id: !input person
+   zone: !input zone
     # Event is either enter or leave
     event: leave
 mode: single
 action: 
-    - entity_id: !input device
-      service: homeassistant.turn_off
+  - service: homeassistant.turn_off
+    target: !input device

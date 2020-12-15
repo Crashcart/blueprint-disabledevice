@@ -17,6 +17,7 @@ blueprint:
           domain: zone
     device:
       name: Device
+      discription: Device
       selector:
         entiy:
           domain: sensor

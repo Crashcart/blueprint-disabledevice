@@ -21,11 +21,13 @@ blueprint:
       selector:
           entity:
             domain: zone
-     device:
-       name: device
-       discription: What device or group to disable
-       selector:
-         entity:
+     zone2:
+      name: Zone
+      description: Select the Zone the person needs to be in.
+      default: zone.away
+      selector:
+          entity:
+            domain: zone
 trigger:
   - condition: state
     entity_id: !input person

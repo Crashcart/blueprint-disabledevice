@@ -8,7 +8,7 @@ blueprint:
       description: Select the person that needs to be home.
       selector:
         entity:
-          domain: group
+          domain: person
     zone:
       name: Zone
       description: Select the Zone the person needs to be in.

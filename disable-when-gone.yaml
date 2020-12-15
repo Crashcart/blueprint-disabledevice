@@ -30,8 +30,10 @@ trigger:
   - condition: state
     entity_id: !input person
     state: !input zone
-action:
-  - service: media_player.volume_mute
-    entity_id: !input media_player
-    data:
-      is_volume_muted: false
+trigger: 
+    platform: state
+    entity_id: !input device
+    to: 'off'
+action: 
+    - entity_id: !input device
+      service: homeassistant.turn_off

@@ -1,1 +1,4 @@
-
+blueprint:
+  name: Enable device
+  description: ebable device you or someone enter a zone
+  domain: automation

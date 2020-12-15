@@ -13,16 +13,16 @@ blueprint:
       name: Zone
       description: Select the Zone the person needs to be in.
       default: zone.home
-        selector:
-          entity:
-            domain: zone
+      selector:
+        entity:
+          domain: zone
     zone2:
       name: Zone
       description: Select the Zone the person needs to be in.
       default: zone.away
-        selector:
-          entity:
-            domain: zone
+      selector:
+        entity:
+          domain: zone
 trigger:
   trigger:
     platform: zone

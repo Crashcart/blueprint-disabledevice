@@ -15,9 +15,9 @@ blueprint:
       selector:
         entity:
           domain: zone
-    device:
-      name: Device
-      discription: Device
+    sensor:
+      name: Sensor
+      discription: Sensor
       selector:
         entiy:
           domain: sensor
@@ -31,9 +31,9 @@ trigger:
     event: leave
 #trigger: 
 #    platform: state
-#    entity_id: !input device
+#    entity_id: !input sensor
 #    to: 'off'
 
 action: 
-    - entity_id: !input device
+    - entity_id: !input sensor
       service: homeassistant.turn_off

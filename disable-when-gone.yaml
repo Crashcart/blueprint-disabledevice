@@ -3,11 +3,6 @@ blueprint:
   description:  Disable devices when everyone is gone
   domain: automation
     input:
-    phone_state:
-      name: Phone State sensor
-      description: All sensors form the mobile app. Select the phone state sensor here.
-      selector:
-        entity:
     person:
       name: Person
       description: Select the person that needs to be home.

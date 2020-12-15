@@ -1,14 +1,14 @@
 blueprint:
-  name: Disable Zone
+  name: Disable automation when a group leaves.
   description: disable motion
   domain: automation
   input:
-    person:
+    group:
       name: Person
-      description: Select the person that needs to be home.
+      description: Select the person group that needs to be home.
       selector:
         entity:
-          domain: person
+          domain: group
     zone:
       name: Zone
       description: Select the Zone the person needs to be in.
@@ -22,13 +22,13 @@ blueprint:
       selector:
         entity:
           domain: automation
-trigger:
-  - platform: state
-    entity_id: !input zone
-    from: "home"
-    to: "away"
-mode: single
-action: 
+  trigger:
+  - platform: zone
+    entity_id: !input group
+    zone: !input zone
+    event: enter
+  condition: []
   action:
   - service: automation.turn_off
-    entiy_id: automation
+    data: {}
+    entity_id: !input automation

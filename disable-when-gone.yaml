@@ -22,6 +22,7 @@ blueprint:
       selector:
         entity:
           domain: automation
+          
   trigger:
   - platform: zone
     entity_id: !input groupname

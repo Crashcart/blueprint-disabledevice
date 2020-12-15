@@ -1,12 +1,36 @@
 blueprint:
   name: Disable automation
   description: >
-     Disable automation when someone leaves
+     Disable automation when someone leaves. Up to 5 users. If you don't have 5 users re-select a user.
   domain: automation
   input:
-    person:
+    personone:
       name: Person
-      description: Select the person that needs to be home.
+      description: Select the person first that needs to be home.
+      selector:
+        entity:
+          domain: person
+    persontwo:
+      name: Person
+      description: Select the second person that needs to be home.
+      selector:
+        entity:
+          domain: person
+    personthree:
+      name: Person
+      description: Select the third person that needs to be home.
+      selector:
+        entity:
+          domain: person
+    personfour:
+      name: Person
+      description: Select the fourth person that needs to be home.
+      selector:
+        entity:
+          domain: person
+    personfive:
+      name: Person
+      description: Select the fith person that needs to be home.
       selector:
         entity:
           domain: person

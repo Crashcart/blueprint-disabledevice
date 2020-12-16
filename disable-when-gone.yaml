@@ -70,7 +70,7 @@ trigger:
     event: leave
   condition:
     - condition: state
-      entity_id: !input personone
+      entity_id: 
       state: AWAY
     - condition: state
       entity_id: !input persontwo
@@ -88,7 +88,9 @@ trigger:
       entity_id: !input personfive
       state: AWAY
 action:
-  action:
   - service: automation.turn_off
+    data: {}
+    entity_id: !input automation
+  - service: automation.turn_on
     data: {}
     entity_id: !input automation

@@ -49,44 +49,35 @@ blueprint:
           domain: automation
 trigger:
   - platform: zone
-    entity_id: !input personone
-    zone: !input zone
+    entity_id: person.sid
+    zone: zone.home
     event: leave
   - platform: zone
-    entity_id: !input persontwo
-    zone: !input zone
+    entity_id: person.sid
+    zone: zone.home
     event: leave
   - platform: zone
-    entity_id: !input personthree
-    zone: !input zone
+    entity_id: person.sid
+    zone: zone.home
     event: leave
-  - platform: zone
-    entity_id: !input personfour
-    zone: !input zone
-    event: leave
-  - platform: zone
-    entity_id: !input personfive
-    zone: !input zone
-    event: leave
-    
   condition:
     - condition: state
-      entity_id: personone
+      entity_id: !input personone
       state: AWAY
     - condition: state
-      entity_id: persontwo
+      entity_id: !input persontwo
       state: AWAY
     - condition: state
-      entity_id: persontwo
+      entity_id: !input persontwo
       state: AWAY
     - condition: state
-      entity_id: personthree
+      entity_id: !input personthree
       state: AWAY
     - condition: state
-      entity_id: personfour
+      entity_id: !input personfour
       state: AWAY
     - condition: state
-      entity_id: personfive
+      entity_id: !input personfive
       state: AWAY
 action:
   action:

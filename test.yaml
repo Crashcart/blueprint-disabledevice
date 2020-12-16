@@ -48,7 +48,16 @@ blueprint:
       selector:
         entity:
           domain: automation
-
+    timea:
+      name: timea
+      description: Select a start time. One must be selected even if its only runs one second format is xx:xx:xx
+      selector:
+        entity: timea
+    timeb:
+      name: timeb
+      discription: End time. See note above
+      selector:
+        entity: timeb
 trigger:
   - platform: state
     entity_id: !input personone
@@ -65,6 +74,8 @@ trigger:
   - platform: state
     entity_id: !input personfive
     to: "away"
+  - platform: time
+    at: !input timea
 condtion:
   - condition: state
     entity_id: !input personone
@@ -80,7 +91,10 @@ condtion:
     state: AWAY
   - condition: state
     entity_id: !input personone
-    state: AWAY
+    state: AWAY 
+  - condition:
+      - platform: time
+    at: !input timea
 action:
   - service: automation.turn_off
     data: {}
@@ -106,6 +120,8 @@ action:
       entity_id: !input personfive
       zone: !input zone
       event: enter
+    - platform: time
+      at: !input timeb
   - service: automation.turn_on
     data: {}
     entity_id: !input automation

@@ -49,15 +49,23 @@ blueprint:
           domain: automation
 trigger:
   - platform: zone
-    entity_id: person.sid
+    entity_id: !input personone
     zone: zone.home
     event: leave
   - platform: zone
-    entity_id: person.sid
+    entity_id: !input persontwo
     zone: zone.home
     event: leave
   - platform: zone
-    entity_id: person.sid
+    entity_id: !input personthree
+    zone: zone.home
+    event: leave
+  - platform: zone
+    entity_id: !input personfour
+    zone: zone.home
+    event: leave
+  - platform: zone
+    entity_id: !input personfive
     zone: zone.home
     event: leave
   condition:

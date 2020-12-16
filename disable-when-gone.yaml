@@ -88,7 +88,6 @@ trigger:
       entity_id: !input personfive
       state: AWAY
 action:
-  action:
   - service: automation.turn_off
     data: {}
     entity_id: !input automation

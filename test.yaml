@@ -50,7 +50,7 @@ blueprint:
 
 trigger:
   - platform: state
-    entity_id: !input person
+    entity_id: !input personone
     to: "away"
 action:
   action:

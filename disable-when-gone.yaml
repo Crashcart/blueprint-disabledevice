@@ -47,7 +47,6 @@ blueprint:
       selector:
         entity:
           domain: automation
-
 trigger:
   - platform: state
     entity_id: !input personone

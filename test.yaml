@@ -52,20 +52,35 @@ trigger:
   - platform: state
     entity_id: !input personone
     to: "away"
-- platform: state
+  - platform: state
     entity_id: !input persontwo
     to: "away"
- - platform: state
+  - platform: state
     entity_id: !input personthree
     to: "away"
-- platform: state
+  - platform: state
     entity_id: !input personfour
     to: "away"
-- platform: state
+  - platform: state
     entity_id: !input personfive
     to: "away"
+condtion:
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
 action:
-  action:
   - service: automation.turn_off
     data: {}
     entity_id: !input automation

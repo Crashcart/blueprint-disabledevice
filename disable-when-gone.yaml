@@ -70,7 +70,7 @@ trigger:
     event: leave
   condition:
     - condition: state
-      entity_id: !input personone
+      entity_id: 
       state: AWAY
     - condition: state
       entity_id: !input persontwo
@@ -90,5 +90,29 @@ trigger:
 action:
   action:
   - service: automation.turn_off
+    data: {}
+    entity_id: !input automation
+  - wait_for_trigger:
+    - platform: zone
+      entity_id: !input personone
+      zone: zone.home
+      event: event
+    - platform: zone
+      entity_id: !input persontwo
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: !input personthree
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: !input personfour
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: !input personfive
+      zone: zone.home
+      event: enter
+  - service: automation.turn_on
     data: {}
     entity_id: !input automation

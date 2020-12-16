@@ -48,16 +48,16 @@ blueprint:
       selector:
         entity:
           domain: automation
-    timea:
-      name: timea
+    timestart:
+      name: timestart
       description: Select a start time. One must be selected even if its only runs one second format is xx:xx:xx
       selector:
-        entity: timea
-    timeb:
-      name: timeb
+        entity: timestart
+    timeend:
+      name: timeend
       discription: End time. See note above
       selector:
-        entity: timeb
+        entity: timeend
 trigger:
   - platform: state
     entity_id: !input personone

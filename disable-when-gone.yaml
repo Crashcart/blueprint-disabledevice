@@ -50,8 +50,40 @@ blueprint:
 
 trigger:
   - platform: state
-    entity_id: !input person
+    entity_id: !input personone
     to: "away"
+  - platform: state
+    entity_id: !input persontwo
+    to: "away"
+  - platform: state
+    entity_id: !input personthree
+    to: "away"
+  - platform: state
+    entity_id: !input personfour
+    to: "away"
+  - platform: state
+    entity_id: !input personfive
+    to: "away"
+    
+  condition:
+    - condition: state
+      entity_id: personone
+      state: AWAY
+    - condition: state
+      entity_id: persontwo
+      state: AWAY
+    - condition: state
+      entity_id: persontwo
+      state: AWAY
+    - condition: state
+      entity_id: personthree
+      state: AWAY
+    - condition: state
+      entity_id: personfour
+      state: AWAY
+    - condition: state
+      entity_id: personfive
+      state: AWAY
 action:
   action:
   - service: automation.turn_off

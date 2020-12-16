@@ -85,3 +85,27 @@ action:
   - service: automation.turn_off
     data: {}
     entity_id: !input automation
+  - wait_for_trigger:
+    - platform: zone
+      entity_id: !input personone
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input persontwo
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: !input personthree
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input personfour
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input personfive
+      zone: !input zone
+      event: enter
+  - service: automation.turn_on
+    data: {}
+    entity_id: !input automation

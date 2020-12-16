@@ -2,6 +2,7 @@ blueprint:
   name: Disable automation
   description: >
      Disable automation when someone leaves. Up to 5 users. If you don't have 5 users re-select a user.
+     The automation will wait for one of the five people to come homw
   domain: automation
   input:
     personone:

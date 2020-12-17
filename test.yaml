@@ -55,9 +55,10 @@ blueprint:
         entity: timestart
     timeend:
       name: timeend
-      discription: End time. See note above
+      description: End time. See note above
       selector:
         entity: timeend
+        
 trigger:
   - platform: state
     entity_id: !input personone

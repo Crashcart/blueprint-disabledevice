@@ -2,6 +2,7 @@ blueprint:
   name: Disable automation
   description: >
      Disable automation when someone leaves. Up to 5 users. If you don't have 5 users re-select a user.
+     The automation will wait for one of the five people to come homw
   domain: automation
   input:
     personone:
@@ -47,50 +48,64 @@ blueprint:
       selector:
         entity:
           domain: automation
+
 trigger:
-  - platform: zone
+  - platform: state
     entity_id: !input personone
-    zone: zone.home
-    event: leave
-  - platform: zone
+    to: "away"
+  - platform: state
     entity_id: !input persontwo
-    zone: zone.home
-    event: leave
-  - platform: zone
+    to: "away"
+  - platform: state
     entity_id: !input personthree
-    zone: zone.home
-    event: leave
-  - platform: zone
+    to: "away"
+  - platform: state
     entity_id: !input personfour
-    zone: zone.home
-    event: leave
-  - platform: zone
+    to: "away"
+  - platform: state
     entity_id: !input personfive
-    zone: zone.home
-    event: leave
-  condition:
-    - condition: state
-      entity_id: 
-      state: AWAY
-    - condition: state
-      entity_id: !input persontwo
-      state: AWAY
-    - condition: state
-      entity_id: !input persontwo
-      state: AWAY
-    - condition: state
-      entity_id: !input personthree
-      state: AWAY
-    - condition: state
-      entity_id: !input personfour
-      state: AWAY
-    - condition: state
-      entity_id: !input personfive
-      state: AWAY
+    to: "away"
+condtion:
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY
+  - condition: state
+    entity_id: !input personone
+    state: AWAY 
 action:
   - service: automation.turn_off
     data: {}
     entity_id: !input automation
+  - wait_for_trigger:
+    - platform: zone
+      entity_id: !input personone
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input persontwo
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: !input personthree
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input personfour
+      zone: !input zone
+      event: enter
+    - platform: zone
+      entity_id: !input personfive
+      zone: !input zone
+      event: enter
   - service: automation.turn_on
     data: {}
     entity_id: !input automation

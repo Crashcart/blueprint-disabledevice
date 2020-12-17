@@ -52,12 +52,14 @@ blueprint:
       name: timestart
       description: Select a start time. One must be selected even if its only runs one second format is xx:xx:xx
       selector:
-        entity: timestart
+        entity:
+          domain: time
     timeend:
       name: timeend
       description: End time. See note above
       selector:
-        entity: timeend
+        entity:
+          domain: time
         
 trigger:
   - platform: state

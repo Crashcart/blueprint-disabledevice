@@ -50,7 +50,7 @@ blueprint:
           domain: automation
     time:
       name: time
-      description: Select a start time. One must be selected even if its only runs one second format is xx:xx:xx
+      description: Not Working. Select a start time. One must be selected even if its only runs one second format is xx:xx:xx
       selector:
         entity:
           domain: time

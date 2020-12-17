@@ -94,7 +94,7 @@ condtion:
     entity_id: !input personone
     state: AWAY 
   - condition:
-      - platform: time
+  - platform: time
     at: !input timestart
 action:
   - service: automation.turn_off

@@ -72,7 +72,7 @@ trigger:
     entity_id: !input personfive
     to: "away"
   - platform: time
-    at: !input timestart
+    at: !input time
 condtion:
   - condition: state
     entity_id: !input personone
@@ -91,7 +91,7 @@ condtion:
     state: AWAY 
   - condition:
   - platform: time
-    at: !input timestart
+    at: !input time
 action:
   - service: automation.turn_off
     data: {}
